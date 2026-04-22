@@ -24,23 +24,23 @@ jobs:
 
       - name: Write .env file
         run: |
-          cat > .env << 'EOF'
-          OCI_REGION=ap-mumbai-1
-          OCI_USER_ID=ocid1.user.oc1..aaaaaaaao3a6x3mrjvr3h6z3b5xierfcc6ipmt5iqyjveklofuz2euba7yoq
-          OCI_TENANCY_ID=ocid1.tenancy.oc1..aaaaaaaawj5mos6i7pfgbxipfl32ed6ncv2eblbewlom2qqmf5opfrlvkgfq
-          OCI_KEY_FINGERPRINT=0d:e8:40:cd:48:cd:08:66:43:9e:a2:5d:62:c1:36:5b
-          OCI_PRIVATE_KEY_FILENAME=oci_api_key.pem
-          OCI_AVAILABILITY_DOMAIN=mNVT:AP-MUMBAI-1-AD-1
-          OCI_SUBNET_ID=ocid1.subnet.oc1.ap-mumbai-1.aaaaaaaafvvi7ih6kktzfqmliw7hj5sjkr3d2chcfbiso3eygizpdkrn2ifa
-          OCI_IMAGE_ID=ocid1.image.oc1.ap-mumbai-1.aaaaaaaa3yc7aswdetryjk6knfe5zlex6opdvab5oazebaebst5zri3ocxcq
-          OCI_OCPUS=4
-          OCI_MEMORY_IN_GBS=24
-          OCI_SHAPE=VM.Standard.A1.Flex
-          OCI_MAX_INSTANCES=1
-          OCI_SSH_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHRW/gu08e+BIumtNf+QJHYvb3GMhfdPtVFI2iq0wzYJDRoELzKm44xnW0GZeuCvxpm/f3LlWLAu/SvgDf8B+LXF7q7I/+WZv8P79PK+cpuvPvgrrgHwNuXH3tDeSBpDi15C5KqNGJ73ZWG6mfGOyBaJ64ZOHrv9HBh+wuKLASgj64Z5o5GTWGmsbayPXTh0kjdTi9tXTeRxzqW3gemVJjMlTTika137wxXaQWdM3ekEiGaVBSXUlxMFUGoqiQQYLneUhrK5lQlupnzbNyTFwINbL5p15lt4NsbIX6907zYIslG8zRfViPhpKTOS6l+kvhKuXpX1NNN3sg3NL5XaCt"
-          CACHE_AVAILABILITY_DOMAINS=1
-          TOO_MANY_REQUESTS_TIME_WAIT=600
-          EOF
+          printf '%s\n' \
+            'OCI_REGION=ap-mumbai-1' \
+            'OCI_USER_ID=ocid1.user.oc1..aaaaaaaao3a6x3mrjvr3h6z3b5xierfcc6ipmt5iqyjveklofuz2euba7yoq' \
+            'OCI_TENANCY_ID=ocid1.tenancy.oc1..aaaaaaaawj5mos6i7pfgbxipfl32ed6ncv2eblbewlom2qqmf5opfrlvkgfq' \
+            'OCI_KEY_FINGERPRINT=0d:e8:40:cd:48:cd:08:66:43:9e:a2:5d:62:c1:36:5b' \
+            'OCI_PRIVATE_KEY_FILENAME=oci_api_key.pem' \
+            'OCI_AVAILABILITY_DOMAIN=mNVT:AP-MUMBAI-1-AD-1' \
+            'OCI_SUBNET_ID=ocid1.subnet.oc1.ap-mumbai-1.aaaaaaaafvvi7ih6kktzfqmliw7hj5sjkr3d2chcfbiso3eygizpdkrn2ifa' \
+            'OCI_IMAGE_ID=ocid1.image.oc1.ap-mumbai-1.aaaaaaaa3yc7aswdetryjk6knfe5zlex6opdvab5oazebaebst5zri3ocxcq' \
+            'OCI_OCPUS=4' \
+            'OCI_MEMORY_IN_GBS=24' \
+            'OCI_SHAPE=VM.Standard.A1.Flex' \
+            'OCI_MAX_INSTANCES=1' \
+            'OCI_SSH_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHRW/gu08e+BIumtNf+QJHYvb3GMhfdPtVFI2iq0wzYJDRoELzKm44xnW0GZeuCvxpm/f3LlWLAu/SvgDf8B+LXF7q7I/+WZv8P79PK+cpuvPvgrrgHwNuXH3tDeSBpDi15C5KqNGJ73ZWG6mfGOyBaJ64ZOHrv9HBh+wuKLASgj64Z5o5GTWGmsbayPXTh0kjdTi9tXTeRxzqW3gemVJjMlTTika137wxXaQWdM3ekEiGaVBSXUlxMFUGoqiQQYLneUhrK5lQlupnzbNyTFwINbL5p15lt4NsbIX6907zYIslG8zRfViPhpKTOS6l+kvhKuXpX1NNN3sg3NL5XaCt"' \
+            'CACHE_AVAILABILITY_DOMAINS=1' \
+            'TOO_MANY_REQUESTS_TIME_WAIT=600' \
+            > .env
 
       - name: Write private key file
         run: echo "$OCI_PRIVATE_KEY" > oci_api_key.pem
